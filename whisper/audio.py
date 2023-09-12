@@ -1,7 +1,7 @@
 import os
 from functools import lru_cache
 from subprocess import CalledProcessError, run
-from typing import Optional, Union
+from typing import Optional, Union, List
 
 import numpy as np
 import torch
@@ -23,7 +23,7 @@ FRAMES_PER_SECOND = exact_div(SAMPLE_RATE, HOP_LENGTH)  # 10ms per audio frame
 TOKENS_PER_SECOND = exact_div(SAMPLE_RATE, N_SAMPLES_PER_TOKEN)  # 20ms per audio token
 
 
-def load_audio(file: str, sr: int = SAMPLE_RATE, ffmpeg_params: list[str] = None):
+def load_audio(file: str, sr: int = SAMPLE_RATE, ffmpeg_params: List[str] = None):
     """
     Open an audio file and read as mono waveform, resampling as necessary
 
@@ -119,7 +119,7 @@ def log_mel_spectrogram(
     audio: Union[str, np.ndarray, torch.Tensor],
     n_mels: int = N_MELS,
     padding: int = 0,
-    ffmpeg_params: list[str] = None,
+    ffmpeg_params: List[str] = None,
     device: Optional[Union[str, torch.device]] = None,
 ):
     """

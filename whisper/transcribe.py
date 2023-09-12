@@ -1,7 +1,7 @@
 import argparse
 import os
 import warnings
-from typing import TYPE_CHECKING, Optional, Tuple, Union
+from typing import TYPE_CHECKING, Optional, Tuple, Union, List
 
 import numpy as np
 import torch
@@ -47,7 +47,7 @@ def transcribe(
     word_timestamps: bool = False,
     prepend_punctuations: str = "\"'“¿([{-",
     append_punctuations: str = "\"'.。,，!！?？:：”)]}、",
-    ffmpeg_params: list[str] = None,
+    ffmpeg_params: List[str] = None,
     **decode_options,
 ):
     """
