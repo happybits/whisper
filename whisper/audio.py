@@ -56,7 +56,7 @@ def load_audio(file: str, sr: int = SAMPLE_RATE, ffmpeg_params: list[str] = None
     ]
     if ffmpeg_params:
         cmd = ffmpeg_params.copy()
-        for i in range(len(l)):
+        for i in range(len(cmd)):
             if cmd[i] == "FILE":
                 cmd[i] = file
             elif cmd[i] == "AR":
